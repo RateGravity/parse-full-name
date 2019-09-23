@@ -1,6 +1,17 @@
 language: node_js
 node_js:
-  - "6"
-  - "5"
-  - "4"
-  - "iojs"
+- '10'
+- node
+- lts/*
+branches:
+  only:
+  - master
+  - "/^v\\d+\\.\\d+(\\.\\d+)?(-\\S*)?$/"
+deploy:
+  provider: npm
+  email: dev+npmci@rategravity.com
+  skip_cleanup: true
+  on:
+    tags: true
+  api_key:
+    secure: c0gVQy52xsoNpdcBlA0UpdJZ4SrRmNxeo76BpKo6KfOGrXHh6/kqCArj8W6de2FPVEfYodzqyDCU81IgxCuIGGz5b9DrcVChYKAv1jeAKZFVYrE2ZjjBcN4L/dbdtNREovvRX9Krd03+dtqxrGx9b/WJist1NjojuKBardDZ/hZGpVkjeK4CwOtKmI63jCWwnoICcRrNxNRkpg5vdf0pShIcK0QFW+CSvjDPXgeMm6ucP5SfkUdOEQFOEuhxdlZm7C6BbfX9ddyfhCp+Q33V+aZkjYrhF5pocsSTtNfKRjCd+oLQ5mW/JKoGPS0G/UYLlKgFqIciQyA5DxmKWa5MfzsQLiWfrAJgqFKm9jz6yftMoZPxutXrTV4lAi5rcVS03JUGSHRX3P4BhNk3pc0hZxKSCxOFVZlAr1hvxtmMtUZNMF55hxput8FUbOVtiJJHGNSzDC/fY9AIIe0NvvzfayG1x1GmjLIOyt9FU3w38Wviz4K53xAVPcO8xPjedLbNOgkFt5T3JBq+mRLGcQoltcL8vGW95y1u++hOgbVU3X95NNZfDsOB9Lc4yP2LZMxzycRbZCiCoqmJk0ceCVW/7zhda5KyRpBn+9s2TvAtVgJeJFjYCLivXVD+7w79gVmyBXWLh6CKaqlcHMU61z3MOHnk59Y+3naWEBng4vYLej8=

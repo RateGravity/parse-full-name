@@ -1,0 +1,4 @@
+test
+.nvmrc
+.travis.yml
+yarn.lock

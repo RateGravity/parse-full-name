@@ -1,6 +1,6 @@
 {
   "name": "parse-full-name",
-  "version": "1.2.3",
+  "version": "1.2.4",
   "description": "A function that accepts the full name of a person in any format, parses it, and returns its parts { title, first name, middle name, last name, nickname, suffix, [and any parsing errors] }.",
   "main": "index.js",
   "scripts": {
@@ -8,7 +8,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/dschnelldavis/parse-full-name"
+    "url": "https://github.com/RateGravity/parse-full-name"
   },
   "keywords": [
     "parse",
@@ -20,12 +20,15 @@
     "last name",
     "nickname"
   ],
-  "author": "David Schnell-Davis <dschnelldavis@gmail.com> (http://github.com/dschnelldavis)",
+  "author": "Own Up <dev@ownup.com> (https://www,ownup.com)",
+  "contributors": [
+    "David Schnell-Davis <dschnelldavis@gmail.com> (http://github.com/dschnelldavis)"
+  ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/dschnelldavis/parse-full-name/issues"
+    "url": "https://github.com/RateGravity/parse-full-name/issues"
   },
-  "homepage": "https://github.com/dschnelldavis/parse-full-name",
+  "homepage": "https://github.com/RateGravity/parse-full-name",
   "dependencies": {},
   "devDependencies": {
     "mocha": "^2.5.0"
