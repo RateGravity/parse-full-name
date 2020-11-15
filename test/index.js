@@ -137,6 +137,12 @@ describe('parse-full-name', function() {
         'mr. jüan martinez (martin) de lorenzo y gutierez jr.','all',0),
         ['mr.','jüan','martinez','de lorenzo y gutierez','martin','jr.',[]]);
     });
+    it('handles leading or trailing whitespace', function() {
+      verifyName(parseFullName('Ezekiel Johnson '),
+        ['','Ezekiel','','Johnson','','',[]]);
+      verifyName(parseFullName('  Ezekiel Johnson'),
+        ['','Ezekiel','','Johnson','','',[]]);
+    });
     it('returns a single part, when specified', function() {
       assert.equal(parseFullName(
         'Mr. Jüan Martinez (Martin) de Lorenzo y Gutierez Jr.',

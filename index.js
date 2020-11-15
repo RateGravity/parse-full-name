@@ -3,6 +3,10 @@ exports.parseFullName = function parseFullName(
 ) {
   "use strict";
 
+  if (nameToParse) {
+    nameToParse = nameToParse.trim();
+  }
+
   var i, j, k, l, m, n, part, comma, titleList, suffixList, prefixList, regex,
     partToCheck, partFound, partsFoundCount, firstComma, remainingCommas,
     nameParts = [], nameCommas = [null], partsFound = [],
