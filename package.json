@@ -4,7 +4,7 @@
   "description": "A function that accepts the full name of a person in any format, parses it, and returns its parts { title, first name, middle name, last name, nickname, suffix, [and any parsing errors] }.",
   "main": "index.js",
   "scripts": {
-    "test": "mocha test/"
+    "test": "nyc mocha test/"
   },
   "repository": {
     "type": "git",
@@ -31,6 +31,7 @@
   "homepage": "https://github.com/RateGravity/parse-full-name",
   "dependencies": {},
   "devDependencies": {
-    "mocha": "^2.5.0"
+    "mocha": "^2.5.0",
+    "nyc": "^15.1.0"
   }
 }
