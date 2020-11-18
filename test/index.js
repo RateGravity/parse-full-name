@@ -3,15 +3,15 @@ var parseFullName = require('../').parseFullName;
 var error;
 
 var verifyName = function(nameToCheck, partsToCheck) {
-  assert.equal(nameToCheck.title, partsToCheck[0]);
-  assert.equal(nameToCheck.first, partsToCheck[1]);
-  assert.equal(nameToCheck.middle, partsToCheck[2]);
-  assert.equal(nameToCheck.last, partsToCheck[3]);
-  assert.equal(nameToCheck.nick, partsToCheck[4]);
-  assert.equal(nameToCheck.suffix, partsToCheck[5]);
-  assert.equal(nameToCheck.error.length, partsToCheck[6].length);
+  assert.strictEqual(nameToCheck.title, partsToCheck[0]);
+  assert.strictEqual(nameToCheck.first, partsToCheck[1]);
+  assert.strictEqual(nameToCheck.middle, partsToCheck[2]);
+  assert.strictEqual(nameToCheck.last, partsToCheck[3]);
+  assert.strictEqual(nameToCheck.nick, partsToCheck[4]);
+  assert.strictEqual(nameToCheck.suffix, partsToCheck[5]);
+  assert.strictEqual(nameToCheck.error.length, partsToCheck[6].length);
   for ( var i = 1, l = partsToCheck[6].length; i < l; i++ ) {
-    assert.equal(nameToCheck.error[i], partsToCheck[6][i]);
+    assert.strictEqual(nameToCheck.error[i], partsToCheck[6][i]);
   }
 };
 
@@ -144,22 +144,22 @@ describe('parse-full-name', function() {
         ['','Ezekiel','','Johnson','','',[]]);
     });
     it('returns a single part, when specified', function() {
-      assert.equal(parseFullName(
+      assert.strictEqual(parseFullName(
         'Mr. Jüan Martinez (Martin) de Lorenzo y Gutierez Jr.',
         'title'),'Mr.');
-      assert.equal(parseFullName(
+      assert.strictEqual(parseFullName(
         'Mr. Jüan Martinez (Martin) de Lorenzo y Gutierez Jr.',
         'first'),'Jüan');
-      assert.equal(parseFullName(
+      assert.strictEqual(parseFullName(
         'Mr. Jüan Martinez (Martin) de Lorenzo y Gutierez Jr.',
         'middle'),'Martinez');
-      assert.equal(parseFullName(
+      assert.strictEqual(parseFullName(
         'Mr. Jüan Martinez (Martin) de Lorenzo y Gutierez Jr.',
         'last'),'de Lorenzo y Gutierez');
-      assert.equal(parseFullName(
+      assert.strictEqual(parseFullName(
         'Mr. Jüan Martinez (Martin) de Lorenzo y Gutierez Jr.',
         'nick'),'Martin');
-      assert.equal(parseFullName(
+      assert.strictEqual(parseFullName(
         'Mr. Jüan Martinez (Martin) de Lorenzo y Gutierez Jr.',
         'suffix'),'Jr.');
     });
