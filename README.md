@@ -48,9 +48,9 @@ var parseFullName = require('parse-full-name').parseFullName;
 
 name = parseFullName('Mr. David Davis');
 
-assert.equal(name.title, 'Mr.');
-assert.equal(name.first, 'David');
-assert.equal(name.last, 'Davis');
+assert.strictEqual(name.title, 'Mr.');
+assert.strictEqual(name.first, 'David');
+assert.strictEqual(name.last, 'Davis');
 ```
 
 ### Options
@@ -97,13 +97,13 @@ var parseFullName = require('parse-full-name').parseFullName;
 
 name = parseFullName('DE LORENZO Y GUTIEREZ, Mr. JÜAN MARTINEZ (MARTIN) Jr.','all',1,0,0);
 
-assert.equal(name.title, 'Mr.');
-assert.equal(name.first, 'Jüan');
-assert.equal(name.middle, 'Martinez');
-assert.equal(name.last, 'de Lorenzo y Gutierez');
-assert.equal(name.nick, 'Martin');
-assert.equal(name.suffix, 'Jr.');
-assert.equal(name.error, []);
+assert.strictEqual(name.title, 'Mr.');
+assert.strictEqual(name.first, 'Jüan');
+assert.strictEqual(name.middle, 'Martinez');
+assert.strictEqual(name.last, 'de Lorenzo y Gutierez');
+assert.strictEqual(name.nick, 'Martin');
+assert.strictEqual(name.suffix, 'Jr.');
+assert.strictEqual(name.error, []);
 ```
 
 ## Reporting Bugs
