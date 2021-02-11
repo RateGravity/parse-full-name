@@ -3,10 +3,6 @@ exports.parseFullName = function parseFullName(
 ) {
   "use strict";
 
-  if (nameToParse) {
-    nameToParse = nameToParse.trim();
-  }
-
   var i, j, k, l, m, n, part, comma, titleList, suffixList, prefixList, regex,
     partToCheck, partFound, partsFoundCount, firstComma, remainingCommas,
     nameParts = [], nameCommas = [null], partsFound = [],
@@ -97,6 +93,8 @@ exports.parseFullName = function parseFullName(
     handleError('No input');
     parsedName = fixParsedNameCase(parsedName, fixCase);
     return partToReturn === 'all' ? parsedName : parsedName[partToReturn];
+  } else {
+    nameToParse = nameToParse.trim();
   }
 
   // Auto-detect fixCase: fix if nameToParse is all upper or all lowercase
