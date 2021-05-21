@@ -1,5 +1,5 @@
 {
-  "name": "parse-full-name",
+  "name": "@rategravity/parse-full-name",
   "version": "1.2.5",
   "description": "A function that accepts the full name of a person in any format, parses it, and returns its parts { title, first name, middle name, last name, nickname, suffix, [and any parsing errors] }.",
   "main": "index.js",
@@ -32,5 +32,6 @@
   "dependencies": {},
   "devDependencies": {
     "mocha": "^2.5.0"
-  }
+  },
+  "private": true
 }
