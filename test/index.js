@@ -15,6 +15,8 @@ var verifyName = function(nameToCheck, partsToCheck) {
   }
 };
 
+
+
 describe('parse-full-name', function() {
   describe('parseFullName', function() {
     it('parses first names', function() {
@@ -68,6 +70,9 @@ describe('parse-full-name', function() {
         ['','Orenthal','James','Simpson','O. J.','',[]]);
       verifyName(parseFullName('Simpson, [O. J.] Orenthal James'),
         ['','Orenthal','James','Simpson','O. J.','',[]]);
+      verifyName(parseFullName('Strippoli, Charles J (HM Home and Community Svcs LLC)'),
+        ['','Charles','J','Strippoli','HM Home and Community Svcs LLC','',[]]);
+        
     });
     it('parses known suffixes', function() {
       verifyName(parseFullName('Sammy Davis, Jr.'),
