@@ -110,7 +110,11 @@ exports.parseFullName = function parseFullName(
   if ( useLongLists ) {
     suffixList = ['esq','esquire','jr','jnr','sr','snr','2','ii','iii','iv',
       'v','clu','chfc','cfp','md','phd','j.d.','ll.m.','m.d.','d.o.','d.c.',
-      'p.c.','ph.d.'];
+      'p.c.','ph.d.','ba','b.a.','beng','b.eng.','bsc','b.sc.', 'di','dipl.-ing.',
+      'mag. med. vet.','dr. med. dent.','mag. rer. nat.','mag. phil.', 'mag. iur.',
+      'm.a.i.s.','llm','ll.m.','msc','m.sc.','phd','dr. nat. techn.','dr. scient. med.',
+      'dr. mont.','dr. rer. nat.','dr. phil.','dr. iur.','dr. rer. soc. oec.','dr. theol.',
+      'm.e.s.','mas','ma','mba','m.b.l.','mib','mp','msc'];
     prefixList = ['a','ab','antune','ap','abu','al','alm','alt','bab','bäck',
       'bar','bath','bat','beau','beck','ben','berg','bet','bin','bint','birch',
       'björk','björn','bjur','da','dahl','dal','de','degli','dele','del',
@@ -152,7 +156,12 @@ exports.parseFullName = function parseFullName(
       'vice admiral','viscount','viscountess','wg cdr', 'ind', 'misc', 'mx'];
   } else {
     suffixList = ['esq','esquire','jr','jnr','sr','snr','2','ii','iii','iv',
-      'md','phd','j.d.','ll.m.','m.d.','d.o.','d.c.','p.c.','ph.d.'];
+      'v','clu','chfc','cfp','md','phd','j.d.','ll.m.','m.d.','d.o.','d.c.',
+      'p.c.','ph.d.','ba','b.a.','beng','b.eng.','bsc','b.sc.', 'di','dipl.-ing.',
+      'mag. med. vet.','dr. med. dent.','mag. rer. nat.','mag. phil.', 'mag. iur.',
+      'm.a.i.s.','llm','ll.m.','msc','m.sc.','phd','dr. nat. techn.','dr. scient. med.',
+      'dr. mont.','dr. rer. nat.','dr. phil.','dr. iur.','dr. rer. soc. oec.','dr. theol.',
+      'm.e.s.','mas','ma','mba','m.b.l.','mib','mp','msc'];
     prefixList = ['ab','bar','bin','da','dal','de','de la','del','della','der',
       'di','du','ibn','l\'','la','le','san','st','st.','ste','ter','van',
       'van de','van der','van den','vel','ver','vere','von'];
