@@ -107,14 +107,68 @@ exports.parseFullName = function parseFullName(
 
   // Initilize lists of prefixs, suffixs, and titles to detect
   // Note: These list entries must be all lowercase
+  suffixList = [
+    'esq', // Esquire
+    ,'esquire', // Esquire
+    'jr', // Junior
+    'jnr', // Junior
+    'sr', // Senior
+    'snr', // Senior
+    '2', // Second
+    'ii', // Second
+    'iii', // Third
+    'iv', // Fourth
+    'v', // Fifth
+    'clu', // Chartered Life Underwriter
+    'chfc', // Chartered Financial Consultant
+    'cfp', // Certified Financial Planner
+    'md', // Doctor of Medicine
+    'phd', // Doctor of Philosophy
+    'j.d.', // Juris Doctor
+    'll.m.', // Master of Laws
+    'm.d.', // Doctor of Medicine
+    'd.o.', // Doctor of Osteopathic Medicine
+    'd.c.', // Doctor of Chiropractic
+    'p.c.', // Professional Corporation
+    'ph.d.', // Doctor of Philosophy
+    'ba', // Bachelor of Arts
+    'b.a.', // Bachelor of Arts
+    'beng', // Bachelor of Engineering
+    'b.eng.', // Bachelor of Engineering
+    'bsc', // Bachelor of Science
+    'b.sc.', // Bachelor of Science
+    'di', // Diplom
+    'dipl.-ing.', // Diplom-Ingenieur
+    'mag. med. vet.', // Magister Medicinae Veterinariae
+    'dr. med. dent.', // Doctor Medicinae Dentariae
+    'mag. rer. nat.', // Magister Rerum Naturalium
+    'mag. phil.', // Magister Philosophiae
+    'mag. iur.', // Magister Iuris
+    'm.a.i.s.', // Master of Advanced International Studies
+    'llm', // Master of Laws
+    'll.m.', // Master of Laws
+    'msc', // Master of Science
+    'm.sc.', // Master of Science
+    'phd', // Doctor of Philosophy
+    'dr. nat. techn.', // Doctor Naturae Technologiae
+    'dr. scient. med.', // Doctor Scientiae Medicinae
+    'dr. mont.', // Doctor Montium
+    'dr. rer. nat.', // Doctor Rerum Naturalium
+    'dr. phil.', // Doctor Philosophiae
+    'dr. iur.', // Doctor Iuris
+    'dr. rer. soc. oec.', // Doctor Rerum Societatis Oeconomicarum
+    'dr. theol.', // Doctor Theologiae
+    'm.e.s.', // Master of Environmental Studies
+    'mas', // Master of Applied Science
+    'ma', // Master of Arts
+    'mba', // Master of Business Administration
+    'm.b.l.', // Master of Business Law
+    'mib', // Master of International Business
+    'mp', // Master of Public Administration
+    'msc', // Master of Science
+  ];
+
   if ( useLongLists ) {
-    suffixList = ['esq','esquire','jr','jnr','sr','snr','2','ii','iii','iv',
-      'v','clu','chfc','cfp','md','phd','j.d.','ll.m.','m.d.','d.o.','d.c.',
-      'p.c.','ph.d.','ba','b.a.','beng','b.eng.','bsc','b.sc.', 'di','dipl.-ing.',
-      'mag. med. vet.','dr. med. dent.','mag. rer. nat.','mag. phil.', 'mag. iur.',
-      'm.a.i.s.','llm','ll.m.','msc','m.sc.','phd','dr. nat. techn.','dr. scient. med.',
-      'dr. mont.','dr. rer. nat.','dr. phil.','dr. iur.','dr. rer. soc. oec.','dr. theol.',
-      'm.e.s.','mas','ma','mba','m.b.l.','mib','mp','msc'];
     prefixList = ['a','ab','antune','ap','abu','al','alm','alt','bab','bäck',
       'bar','bath','bat','beau','beck','ben','berg','bet','bin','bint','birch',
       'björk','björn','bjur','da','dahl','dal','de','degli','dele','del',
@@ -155,13 +209,6 @@ exports.parseFullName = function parseFullName(
       'the hon mrs','the hon ms','the hon sir','the very rev','toh puan','tun',
       'vice admiral','viscount','viscountess','wg cdr', 'ind', 'misc', 'mx'];
   } else {
-    suffixList = ['esq','esquire','jr','jnr','sr','snr','2','ii','iii','iv',
-      'v','clu','chfc','cfp','md','phd','j.d.','ll.m.','m.d.','d.o.','d.c.',
-      'p.c.','ph.d.','ba','b.a.','beng','b.eng.','bsc','b.sc.', 'di','dipl.-ing.',
-      'mag. med. vet.','dr. med. dent.','mag. rer. nat.','mag. phil.', 'mag. iur.',
-      'm.a.i.s.','llm','ll.m.','msc','m.sc.','phd','dr. nat. techn.','dr. scient. med.',
-      'dr. mont.','dr. rer. nat.','dr. phil.','dr. iur.','dr. rer. soc. oec.','dr. theol.',
-      'm.e.s.','mas','ma','mba','m.b.l.','mib','mp','msc'];
     prefixList = ['ab','bar','bin','da','dal','de','de la','del','della','der',
       'di','du','ibn','l\'','la','le','san','st','st.','ste','ter','van',
       'van de','van der','van den','vel','ver','vere','von'];
