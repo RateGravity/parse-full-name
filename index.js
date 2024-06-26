@@ -158,7 +158,7 @@ exports.parseFullName = function parseFullName(
       'van de','van der','van den','vel','ver','vere','von'];
     titleList = ['dr','miss','mr','mrs','ms','prof','sir','frau','herr','hr',
       'monsieur','captain','doctor','judge','officer','professor', 'ind', 'misc',
-      'mx'];
+      'mx', 'dnp', 'msn', 'aprn', 'agnp-c', 'ocn', 'msn', 'rn', 'bsn', 'pharmd', 'mhs', 'mpa'];
   }
 
   // Nickname: remove and store parts with surrounding punctuation as nicknames
