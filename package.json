@@ -29,9 +29,9 @@
     "url": "https://github.com/RateGravity/parse-full-name/issues"
   },
   "homepage": "https://github.com/RateGravity/parse-full-name",
-  "dependencies": {},
   "devDependencies": {
     "@types/node": "^18",
     "mocha": "^2.5.0"
-  }
+  },
+  "packageManager": "yarn@4.3.1"
 }
