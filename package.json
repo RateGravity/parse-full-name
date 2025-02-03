@@ -31,7 +31,6 @@
   "homepage": "https://github.com/RateGravity/parse-full-name",
   "dependencies": {},
   "devDependencies": {
-    "@types/node": "^18",
-    "mocha": "^2.5.0"
+    "mocha": "^11.1.0"
   }
 }
