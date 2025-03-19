@@ -88,6 +88,55 @@ exports.parseFullName = function parseFullName(
     return fixedCaseName;
   }
 
+  // Nickname: remove and store parts with surrounding punctuation as nicknames
+  function findNicknames(nameToParse) {
+    const paddedName = ' ' + nameToParse + ' ';
+    const nicknameMatches = [];
+    
+    // Define delimiter pairs as a direct mapping
+    const delimiterPairs = {
+      "'": "'",
+      '"': '"',
+      "“": "”",
+      "‘": "’",
+      "[": "]",
+      "(": ")"
+    };
+    
+    let i = 0, currentDelimiter = null, startPos = -1, char, nextChar;
+    
+    for (i = 0 ; i < paddedName.length ; i++) {
+      char = paddedName[i];
+      
+      if (currentDelimiter === null) {
+        // Not inside a delimiter - check if this is an opening delimiter
+        if (delimiterPairs[char] && i > 0 && paddedName[i-1] === ' ') {
+          currentDelimiter = char;
+          startPos = i - 1; // Include the preceding space
+        }
+      } else {
+        // Already inside a delimiter - check if this is the matching closing delimiter
+        if (char === delimiterPairs[currentDelimiter]) {
+          // Check what follows the closing delimiter
+          if (i + 1 < paddedName.length) {
+            nextChar = paddedName[i + 1];
+            
+            if (nextChar === ' ' || (nextChar === ',' && i + 2 < paddedName.length && paddedName[i + 2] === ' ')) {
+              // Valid nickname found
+              const endPos = nextChar === ',' ? i + 2 : i + 1;
+              nicknameMatches.push(paddedName.substring(startPos, endPos + 1));
+            }
+          }
+          
+          // Reset state
+          currentDelimiter = null;
+        }
+      }
+    }
+    
+    return nicknameMatches;
+  }
+
   // If no input name, or input name is not a string, abort
   if ( !nameToParse || typeof nameToParse !== 'string' ) {
     handleError('No input');
@@ -161,10 +210,8 @@ exports.parseFullName = function parseFullName(
       'mx'];
   }
 
-  // Nickname: remove and store parts with surrounding punctuation as nicknames
-  regex = /\s(?:[‘’']([^‘’']+)[‘’']|[“”"]([^“”"]+)[“”"]|\[([^\]]+)\]|\(([^\)]+)\)),?\s/g;
-  partFound = (' '+nameToParse+' ').match(regex);
-  if ( partFound ) partsFound = partsFound.concat(partFound);
+  partFound = findNicknames(nameToParse);
+  if ( partFound && partFound.length > 0 ) partsFound = partsFound.concat(partFound);
   partsFoundCount = partsFound.length;
   if ( partsFoundCount === 1 ) {
     parsedName.nick = partsFound[0].slice(2).slice(0,-2);
