@@ -1,0 +1,23 @@
+name: Deploy Release
+
+on:
+  release:
+    types: [published]
+
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+      id-token: write
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '24'
+          registry-url: 'https://registry.npmjs.org'
+      - run: yarn install
+      - run: yarn test
+      - run: npm publish
+        shell: bash
