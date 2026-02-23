@@ -10,6 +10,9 @@
     "type": "git",
     "url": "https://github.com/RateGravity/parse-full-name"
   },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/"
+  },
   "keywords": [
     "parse",
     "parser",

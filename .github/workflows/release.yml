@@ -1,0 +1,37 @@
+name: Deploy Release
+
+on:
+  release:
+    types: [published]
+    
+jobs:
+  publish-gpr:
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+      contents: read
+    steps:
+      - uses: actions/checkout@v5
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+      - run: yarn install
+        env:
+          YARN_NPM_AUTH_TOKEN: ${{ secrets.NPMJS_READ_TOKEN }}
+          YARN_NPM_REGISTRY_SERVER: "https://registry.npmjs.org"
+          YARN_NPM_ALWAYS_AUTH: "true"
+      - run: yarn test
+      - run: yarn build
+      - run: echo "//npm.pkg.github.com/:_authToken=${{secrets.GITHUB_TOKEN}}" >> .npmrc
+        working-directory: ./packages/eslint-config/lib
+        shell: bash
+      - name: Set package version from release tag
+        run: |
+          VERSION=${{github.ref_name}}
+          VERSION=${VERSION#v}
+          npm version $VERSION --no-git-tag-version
+        working-directory: ./packages/eslint-config/lib
+        shell: bash
+      - run: npm publish
+        working-directory: ./packages/eslint-config/lib
+        shell: bash
