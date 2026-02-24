@@ -19,5 +19,5 @@ jobs:
           registry-url: 'https://registry.npmjs.org'
       - run: yarn install
       - run: yarn test
-      - run: npm publish
+      - run: npm publish --provenance
         shell: bash
