@@ -32,6 +32,9 @@
   "dependencies": {},
   "devDependencies": {
     "@types/node": "^22",
-    "mocha": "^11.1.0"
+    "mocha": "^11.7.5"
+  },
+  "resolutions": {
+    "serialize-javascript": "^7.0.3"
   }
 }
